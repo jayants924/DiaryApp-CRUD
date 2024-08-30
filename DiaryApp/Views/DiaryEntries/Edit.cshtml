@@ -1,0 +1,36 @@
+﻿@model DiaryEntry
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form asp-action="Edit" method="post">
+                <fieldset>
+                    <legend>Update Diary Entry</legend>
+                    <div>
+                        <label asp-for="Title" class="form-label mt-4">Title</label>
+                        <input asp-for="Title" type="text" class="form-control" id="title" placeholder="Enter a title">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Content" class="form-label mt-4">Content</label>
+                        <textarea asp-for="Content" class="form-control" id="content" rows="2" placeholder="Enter ehat you did that day.."></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Created_at" class="form-label mt-4">Date</label>
+                        <input asp-for="Created_at" type="date" class="form-control" placeholder="Enter a date">
+                        <span asp-validation-for="Created_at" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a class="btn btn-default" asp-area="" asp-controller="DiaryEntries" asp-action="Index">Cancel</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
